@@ -1,0 +1,3 @@
+install: rake db:create db:migrate db:seed
+
+run the server: rails s
