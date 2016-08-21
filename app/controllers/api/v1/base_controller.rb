@@ -8,6 +8,7 @@ module Api
     private
       def current_user
         @current_user ||= User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+        @current_user ||= User.find_by_uid(session[:current_user][:uid]) if session[:current_user][:uid]
         @current_user ||= User.last if Rails.env.development?
         @current_user.update_attributes(online: true) unless @current_user.nil?
         @current_user
