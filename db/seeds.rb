@@ -7,8 +7,6 @@ Battle.destroy_all
 user = User.create(email: 'oskar@gmail.com')
 user_1 = User.create(email: 'kacper@gmail.com')
 
-# binding.pry
-
 colours = ["red", "green", "blue", "yellow", "orange", "grey", "purple", "pink", "cyan", "brown"]
 
 (0..9).each do |verts|

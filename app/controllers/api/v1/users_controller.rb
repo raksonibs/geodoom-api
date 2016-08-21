@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < Api::V1::BaseController
-      before_action :doorkeeper_authorize!, except: [:create, :index, :show]
+      before_action :doorkeeper_authorize!, except: [:create, :index, :show, :me]
       before_action :find_user, only: [:show, :update, :destroy]
 
       def index
