@@ -15,6 +15,7 @@ gem 'omniauth-oauth2'
 gem 'omniauth-steam'
 gem 'figaro'
 gem 'ahoy_matey'
+gem 'openid_connect'
 
 group :development, :test do
   gem 'pry'
