@@ -11,6 +11,10 @@ gem 'rails-api'
 gem 'dotenv-rails'
 
 gem 'doorkeeper', '~> 3.0.1'
+gem 'omniauth-oauth2'
+gem 'omniauth-steam'
+gem 'figaro'
+gem 'ahoy_matey'
 
 group :development, :test do
   gem 'pry'
