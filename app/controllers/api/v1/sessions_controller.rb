@@ -19,7 +19,11 @@ module Api
                                               :uid => auth.uid }
         
         @user = User.find_or_create_from_auth_hash(session[:current_user])        
-    
+        # application id 1 is steam?
+        access_token = Doorkeeper::AccessToken.find_or_create_for(:application_id => 1, :resource_owner_id => @user.id)
+
+        params["redirect_uri"] ||= "http://localhost:4200/oauth2callback"
+      
         redirect_to "#{params["redirect_uri"]}?code=200&state=#{params["state"]}&session_token=#{@user.id}&user=#{@user.id}"
         # render json: current_user
 
