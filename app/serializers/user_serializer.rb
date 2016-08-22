@@ -3,4 +3,5 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :pets
   has_many :battles
+  has_many :game_stats
 end

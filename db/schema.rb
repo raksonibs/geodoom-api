@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821194611) do
+ActiveRecord::Schema.define(version: 20160822062431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,28 @@ ActiveRecord::Schema.define(version: 20160821194611) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "game_stats", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "game_id"
+  end
+
+  add_index "game_stats", ["game_id"], name: "index_game_stats_on_game_id", using: :btree
+  add_index "game_stats", ["user_id"], name: "index_game_stats_on_user_id", using: :btree
+
+  create_table "games", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "resource_owner_id", null: false
@@ -168,4 +190,7 @@ ActiveRecord::Schema.define(version: 20160821194611) do
   add_foreign_key "balance_change_categories", "balance_changes", on_delete: :cascade
   add_foreign_key "balance_change_categories", "categories", on_delete: :cascade
   add_foreign_key "balance_changes", "users", on_delete: :cascade
+  add_foreign_key "game_stats", "games"
+  add_foreign_key "game_stats", "users"
+  add_foreign_key "games", "users"
 end
