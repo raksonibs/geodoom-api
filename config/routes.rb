@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :users
       resources :balance_changes
       resources :pet_states, except: [:new, :edit]
+      resources :game_stats, except: [:new, :edit]
       resources :states, except: [:new, :edit]
       resources :stats, except: [:new, :edit]
       resources :pets, except: [:new, :edit]
