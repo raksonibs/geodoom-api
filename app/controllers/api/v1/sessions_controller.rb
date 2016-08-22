@@ -18,9 +18,11 @@ module Api
                                               :image => auth.info['image'],
                                               :uid => auth.uid }
         
-        @user = User.find_or_create_from_auth_hash(session[:current_user])        
+        @user = current_user || User.find_or_create_from_auth_hash(session[:current_user])        
+        hash = session[:current_user]
+        @user.update_attributes({uid: hash[:uid], nickname: hash[:nickname], image: hash[:image]})
         # application id 1 is steam?
-        access_token = Doorkeeper::AccessToken.find_or_create_for(:application_id => 1, :resource_owner_id => @user.id)
+        access_token = Doorkeeper::AccessToken.where(:resource_owner_id => @user.id).first || Doorkeeper::AccessToken.create!(:application_id => 1, :resource_owner_id => @user.id)
 
         params["redirect_uri"] ||= "http://localhost:4200/oauth2callback"
       
