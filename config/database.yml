@@ -4,7 +4,7 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
+  <<: *default  
   database: red_green_development
 
 # Warning: The database defined as "test" will be erased and
