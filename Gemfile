@@ -16,6 +16,7 @@ gem 'omniauth-steam'
 gem 'figaro'
 gem 'ahoy_matey'
 gem 'openid_connect'
+gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
   gem 'pry'

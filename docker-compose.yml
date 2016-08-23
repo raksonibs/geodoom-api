@@ -1,16 +1,13 @@
 version: '2'
 services:
   db:
-    image: postgres:9.4.1
-    ports:
-      - "5432:5432"
-
+    image: postgres
   web:
     build: .
-    command: bin/rails server --port 3000 --binding 0.0.0.0
-    ports:
-      - "3000:3000"
-    links:
-      - db
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
