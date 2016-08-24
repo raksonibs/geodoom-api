@@ -20,6 +20,7 @@ gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
   gem 'pry'
+  gem "rails-erd"
 end
 
 group :production do 
