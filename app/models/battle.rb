@@ -25,7 +25,8 @@ class Battle < ActiveRecord::Base
   end
 
   def add_pet
-    pets_found = [Pet.find_by_id(challenged_pet_id) || self.users.first.try(:pets).try(:first), Pet.find_by_id(challenger_pet_id) || self.users.last.try(:pets).try(:first)]
+    # should broadcast need to refresh browser for battle for user
+    pets_found = [Pet.find_by_id(challenged_pet_id), Pet.find_by_id(challenger_pet_id)]
    
     pets_found.compact.each do |pet|
       pet.battles << self
