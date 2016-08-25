@@ -38,7 +38,7 @@ module Api
 
       private
       def user_params
-        params.require(:data).require(:attributes).permit(:email, :password, :currency)
+        params.require(:data).require(:attributes).permit(:email, :password, :currency, :nickname, :image, :uid, :online)
       end
 
       def find_user
@@ -48,7 +48,7 @@ module Api
       def insert_sample_data(user)
         [3.months.ago, 2.months.ago, 1.month.ago, Date.today].each do |date|
           3.times do
-            begin
+          begin
             user.balance_changes.create!(entry_date: date, value: rand(160..250)*100, change_type: :income)
             user.balance_changes.create!(entry_date: date, value: rand(130..200)*100, change_type: :expense)
           rescue
