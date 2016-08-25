@@ -25,8 +25,9 @@ class Battle < ActiveRecord::Base
   end
 
   def add_pet
-    pets_found = [Pet.find_by_id(challenged_pet_id), Pet.find_by_id(challenger_pet_id)]
-    pets_found.each do |pet|
+    pets_found = [Pet.find_by_id(challenged_pet_id) || self.users.first.try(:pets).try(:first), Pet.find_by_id(challenger_pet_id) || self.users.last.try(:pets).try(:first)]
+   
+    pets_found.compact.each do |pet|
       pet.battles << self
       self.pets << pet
       pet_state = PetState.find_by({state: state, pet: pet}) || PetState.create(state: state, pet: pet)
@@ -48,6 +49,16 @@ class Battle < ActiveRecord::Base
 
   def set_emails
     user = User.find_by_email(challenged_email)
-    user.battles << self
+    user_2 = User.find_by_email(challenger_email)
+
+    unless user.nil?
+      self.users << user
+      user.battles << self
+    end
+
+    unless user_2.nil?
+      self.users << user_2
+      user.battles << self
+    end
   end
 end

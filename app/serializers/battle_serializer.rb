@@ -23,11 +23,11 @@ class BattleSerializer < ActiveModel::Serializer
   end
 
   def winner_email
-    User.find_by_id(object.winner_id).email
+    User.find_by_id(object.winner_id).try(:email)
   end
 
   def loser_email
-    User.find_by_id(object.loser_id).email
+    User.find_by_id(object.loser_id).try(:email)
   end
 
   def current_turn_email

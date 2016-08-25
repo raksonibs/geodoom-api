@@ -33,6 +33,7 @@ module Api
         if battle.valid?
           render json: battle, status: :created
         else
+          battle.destroy
           render json: ErrorSerializer.serialize(battle.errors), status: :unprocessable_entity
         end
       end

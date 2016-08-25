@@ -8,7 +8,7 @@ class State < ActiveRecord::Base
   def set_turn
     if current_turn.blank?
       user = battle.users.order(:created_at).first
-      update_attributes(current_turn: user.id)
+      update_attributes(current_turn: user.id) unless user.blank?
     end
   end
 
