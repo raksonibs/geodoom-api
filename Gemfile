@@ -22,8 +22,13 @@ gem 'redis', '~>3.2'
 group :development, :test do
   gem 'pry'
   gem "rails-erd"
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :production do 
   gem 'rails_12factor'
+  gem 'unicorn'
+  gem 'newrelic_rpm'
 end

@@ -4,15 +4,14 @@ module Api
       redis = Redis.new
 
       def index
-        render text: "Red Green API"
+        render text: "Geoodoom API"
       end
 
       private
       def current_user(session = nil)
         @current_user ||= User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
         @current_user ||= User.find_by_uid(session[:current_user][:uid]) if session && session[:current_user]
-        @current_user ||= User.find(Doorkeeper::AccessToken.last.resource_owner_id) if Rails.env.development?
-        # this is broken...
+        @current_user ||= User.find(Doorkeeper::AccessToken.last.try(:resource_owner_id)) if Doorkeeper::AccessToken.last.try(:resource_owner_id) && Rails.env.development?        
         # doorkeeper, torri, ember simple auth all playing wrongly together
         @current_user.update_attributes(online: true) unless @current_user.nil?
         @current_user

@@ -5,11 +5,10 @@ development: &default
   pool: 5
   username: postgres
   password:
-  host: db
 
 test:
   <<: *default
-  database: myapp_test
+  database: red_green_test
 
 production:
   <<: *default
