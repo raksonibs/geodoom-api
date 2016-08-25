@@ -1,7 +1,7 @@
 module Api
   module V1
     class BaseController < ApplicationController
-      
+      redis = Redis.new
 
       def index
         render text: "Red Green API"
