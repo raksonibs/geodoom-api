@@ -1,0 +1,16 @@
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: postgres
+  pool: 5
+  username: postgres
+  password:
+
+test:
+  <<: *default
+  adapter: postgresql
+  database: travis_ci_test
+
+production:
+  <<: *default
+  database: red_green_production

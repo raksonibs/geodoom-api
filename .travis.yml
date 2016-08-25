@@ -4,4 +4,11 @@ rvm:
  - jruby
  - rbx-2
 
+services:
+  - postgresql
+
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+
 script: bundle exec rspec spec
