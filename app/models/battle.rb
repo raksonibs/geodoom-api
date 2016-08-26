@@ -2,17 +2,13 @@ class Battle < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_one :winner, class_name: 'Pet', foreign_key: 'winner_id'
   has_one :loser, class_name: 'Pet', foreign_key: 'loser_id'
-
   has_and_belongs_to_many :pets
-  # has_one :challenger_pet, class_name: 'Pet', foreign_key: 'challenger_pet_id'
-  # has_one :challenged_pet, class_name: 'Pet', foreign_key: 'challenged_pet_id'
+  has_one :state
 
   after_create :set_name, :set_emails, :create_state
   after_update :add_pet
 
   validate :emails_not_same
-
-  has_one :state
 
   enum status: [:pending, :started, :completed]
 
@@ -27,7 +23,9 @@ class Battle < ActiveRecord::Base
   def add_pet
     # should broadcast need to refresh browser for battle for user
     pets_found = [Pet.find_by_id(challenged_pet_id), Pet.find_by_id(challenger_pet_id)]
-   
+
+    self.pets = []    
+
     pets_found.compact.each do |pet|
       pet.battles << self
       self.pets << pet

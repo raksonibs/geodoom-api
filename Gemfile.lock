@@ -61,7 +61,9 @@ GEM
     choice (0.2.0)
     coderay (1.1.0)
     concurrent-ruby (1.0.0)
+    database_cleaner (1.5.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     doorkeeper (3.0.1)
       railties (>= 3.2)
     dotenv (2.1.0)
@@ -227,6 +229,11 @@ GEM
     safely_block (0.1.1)
       errbase
     securecompare (1.0.0)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slop (3.6.0)
     sprockets (3.5.1)
       concurrent-ruby (~> 1.0)
@@ -272,6 +279,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0.rc2)
   ahoy_matey
   bcrypt-ruby (= 3.1.2)
+  database_cleaner
   doorkeeper (~> 3.0.1)
   dotenv-rails
   factory_girl_rails
@@ -291,6 +299,7 @@ DEPENDENCIES
   redis (~> 3.2)
   responders
   rspec-rails (~> 3.5)
+  simplecov
   therubyracer
   unicorn
 
