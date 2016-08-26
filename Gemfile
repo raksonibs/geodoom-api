@@ -18,6 +18,7 @@ gem 'ahoy_matey'
 gem 'openid_connect'
 gem 'therubyracer', platforms: :ruby
 gem 'redis', '~>3.2'
+gem 'coveralls', require: false
 
 group :development, :test do
   gem 'pry'
@@ -25,6 +26,13 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'faker'
+end
+
+group :test do 
+  gem 'database_cleaner'
+  gem 'simplecov', :require => false
+  gem 'shoulda-matchers'
+  gem 'shoulda'
 end
 
 group :production do 

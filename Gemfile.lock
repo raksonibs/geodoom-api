@@ -61,7 +61,15 @@ GEM
     choice (0.2.0)
     coderay (1.1.0)
     concurrent-ruby (1.0.0)
+    coveralls (0.8.14)
+      json (>= 1.8, < 3)
+      simplecov (~> 0.12.0)
+      term-ansicolor (~> 1.3)
+      thor (~> 0.19.1)
+      tins (~> 1.6.0)
+    database_cleaner (1.5.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     doorkeeper (3.0.1)
       railties (>= 3.2)
     dotenv (2.1.0)
@@ -227,6 +235,14 @@ GEM
     safely_block (0.1.1)
       errbase
     securecompare (1.0.0)
+    shoulda (2.11.3)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slop (3.6.0)
     sprockets (3.5.1)
       concurrent-ruby (~> 1.0)
@@ -241,11 +257,14 @@ GEM
       httpclient (>= 2.4)
       i18n
       json (>= 1.4.3)
+    term-ansicolor (1.3.2)
+      tins (~> 1.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     thread_safe (0.3.5)
+    tins (1.6.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicorn (5.1.0)
@@ -272,6 +291,8 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0.rc2)
   ahoy_matey
   bcrypt-ruby (= 3.1.2)
+  coveralls
+  database_cleaner
   doorkeeper (~> 3.0.1)
   dotenv-rails
   factory_girl_rails
@@ -291,6 +312,9 @@ DEPENDENCIES
   redis (~> 3.2)
   responders
   rspec-rails (~> 3.5)
+  shoulda
+  shoulda-matchers
+  simplecov
   therubyracer
   unicorn
 

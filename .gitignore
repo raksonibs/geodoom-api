@@ -15,4 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+config/secrets.yml
 config/application.yml
+coverage
+spec/examples.txt
+
