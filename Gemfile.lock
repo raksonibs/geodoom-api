@@ -229,6 +229,9 @@ GEM
     safely_block (0.1.1)
       errbase
     securecompare (1.0.0)
+    shoulda (2.11.3)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -299,6 +302,8 @@ DEPENDENCIES
   redis (~> 3.2)
   responders
   rspec-rails (~> 3.5)
+  shoulda
+  shoulda-matchers
   simplecov
   therubyracer
   unicorn

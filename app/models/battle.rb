@@ -50,6 +50,9 @@ class Battle < ActiveRecord::Base
     user = User.find_by_email(challenged_email)
     user_2 = User.find_by_email(challenger_email)
 
+    self.users = []
+    # how to remove association? 
+
     unless user.nil?
       self.users << user
       user.battles << self

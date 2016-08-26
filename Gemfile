@@ -30,6 +30,8 @@ end
 group :test do 
   gem 'database_cleaner'
   gem 'simplecov', :require => false
+  gem 'shoulda-matchers'
+  gem 'shoulda'
 end
 
 group :production do 

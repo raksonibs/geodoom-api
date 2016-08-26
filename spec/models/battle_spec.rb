@@ -6,7 +6,7 @@ RSpec.describe Battle, type: :model do
   let(:battle_w_users) { create :battle_w_users }
 
   it "should return true" do 
-    Battle.new.should_not be_valid
+    expect(Battle.new.valid?).to eq(false)
   end
 
   it 'status should be pending with zero pets' do 
@@ -31,6 +31,8 @@ RSpec.describe Battle, type: :model do
 
   it 'state should be set on creation' do 
     expect(battle.state.battle_id).to eq(battle.id)
+    expect(battle.state.current_turn).to eq(nil)
+    # tested at phoenix level which handles this logic
   end
 
   it 'state should be set on creation' do
@@ -40,10 +42,21 @@ RSpec.describe Battle, type: :model do
     expect(battle).to_not be_valid
   end
 
-  it 'set_emails should be nil with no users, and two when actual users' do
+  it 'set_emails should be nil with no users' do
     battle.update(challenged_email: "oskar@gmail.com")
     battle.update(challenger_email: "oskar@gmail.com")
 
-    expect(battle).to_not be_valid
+    expect(battle.valid?).to eq(false)
+  end
+
+  it 'set_emails should be nil with no users' do
+    user = create(:user, email: 'oskar@gmail.com')
+    user_2 = create(:user, email: 'kacper@gmail.com')
+
+    battle.update(challenger_email: user_2.email)
+    battle.update(challenged_email: user.email)
+
+    expect(battle.valid?).to eq(true)
+    expect(battle.users.length).to eq(2)
   end
 end
