@@ -8,3 +8,5 @@
 ## Overview
 
 The Rails API and Backend for Geoodoom.
+
+Can start with usual `rails s` or `docker-compose -f docker-compose.yml build` and `docker-compose -f docker-compose.yml up`
