@@ -18,6 +18,7 @@ gem 'ahoy_matey'
 gem 'openid_connect'
 gem 'therubyracer', platforms: :ruby
 gem 'redis', '~>3.2'
+gem 'coveralls', require: false
 
 group :development, :test do
   gem 'pry'

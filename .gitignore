@@ -18,3 +18,5 @@
 config/secrets.yml
 config/application.yml
 coverage
+spec/examples.txt
+
