@@ -103,6 +103,9 @@ GEM
       securecompare
       url_safe_base64
     jwt (1.5.1)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.10.0)
     libv8 (3.16.14.15)
     loofah (2.0.3)
@@ -298,6 +301,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  kaminari
   newrelic_rpm
   omniauth-oauth2
   omniauth-steam

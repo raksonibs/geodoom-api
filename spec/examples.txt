@@ -1,10 +1,10 @@
 example_id                        | status | run_time        |
 --------------------------------- | ------ | --------------- |
-./spec/models/battle_spec.rb[1:1] | passed | 0.00103 seconds |
-./spec/models/battle_spec.rb[1:2] | passed | 0.01417 seconds |
-./spec/models/battle_spec.rb[1:3] | passed | 0.27059 seconds |
-./spec/models/battle_spec.rb[1:4] | passed | 0.0144 seconds  |
-./spec/models/battle_spec.rb[1:5] | passed | 0.01293 seconds |
-./spec/models/battle_spec.rb[1:6] | passed | 0.01362 seconds |
-./spec/models/battle_spec.rb[1:7] | passed | 0.01235 seconds |
-./spec/models/battle_spec.rb[1:8] | passed | 0.05567 seconds |
+./spec/models/battle_spec.rb[1:1] | passed | 0.00095 seconds |
+./spec/models/battle_spec.rb[1:2] | passed | 0.01342 seconds |
+./spec/models/battle_spec.rb[1:3] | passed | 0.1333 seconds  |
+./spec/models/battle_spec.rb[1:4] | passed | 0.12737 seconds |
+./spec/models/battle_spec.rb[1:5] | passed | 0.01502 seconds |
+./spec/models/battle_spec.rb[1:6] | passed | 0.01422 seconds |
+./spec/models/battle_spec.rb[1:7] | passed | 0.01415 seconds |
+./spec/models/battle_spec.rb[1:8] | passed | 0.09335 seconds |

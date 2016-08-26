@@ -5,8 +5,20 @@ module Api
       before_action :find_pet, only: [:show, :update, :destroy]
 
       def index
-        pets = current_user.try(:pets) || Pet.all
-        # filtered_pets = apply_filters(pets, params[:filter])
+        if params[:page]
+          pets = if current_user
+            Pet.page(params[:page]).per(params[:per_page]).where(user: current_user)
+          else
+            Pet.all
+          end          
+        else
+          pets = if current_user
+            Pet.page(params[:page]).per(params[:per_page]).where(user: current_user)
+          else
+            Pet.all
+          end
+          pets =  current_user.try(:pets) || Pet.all
+        end        
 
         render json: pets.order("created_at DESC")
       end

@@ -19,6 +19,7 @@ gem 'openid_connect'
 gem 'therubyracer', platforms: :ruby
 gem 'redis', '~>3.2'
 gem 'coveralls', require: false
+gem 'kaminari'
 
 group :development, :test do
   gem 'pry'
