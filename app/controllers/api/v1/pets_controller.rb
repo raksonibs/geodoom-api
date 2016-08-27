@@ -39,7 +39,7 @@ module Api
 
       def create
         pet = current_user.pets.create(pets_params)
-
+        
         if pet.valid?
           render json: pet, status: :created
         else
