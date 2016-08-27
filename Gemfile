@@ -22,6 +22,10 @@ gem 'coveralls', require: false
 gem 'kaminari'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem 'sidekiq'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
 
 group :development, :test do
   gem 'pry'

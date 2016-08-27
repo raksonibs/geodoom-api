@@ -71,6 +71,7 @@ GEM
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     concurrent-ruby (1.0.0)
+    connection_pool (2.2.0)
     coveralls (0.8.14)
       json (>= 1.8, < 3)
       simplecov (~> 0.12.0)
@@ -177,6 +178,8 @@ GEM
     rack (1.6.4)
     rack-attack (5.0.1)
       rack
+    rack-cache (1.6.1)
+      rack (>= 0.4)
     rack-cors (0.4.0)
     rack-oauth2 (1.4.0)
       activesupport (>= 2.3)
@@ -229,6 +232,27 @@ GEM
     raindrops (0.16.0)
     rake (10.4.2)
     redis (3.3.0)
+    redis-actionpack (4.0.1)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.1.5)
+      activesupport (>= 3, < 5)
+      redis-store (~> 1.1.0)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rack-cache (1.2.4)
+      rack-cache (~> 1.2)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.7)
+      redis (>= 2.2)
     ref (2.0.0)
     referer-parser (0.3.0)
     request_store (1.3.1)
@@ -259,6 +283,10 @@ GEM
     shoulda (2.11.3)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    sidekiq (4.1.1)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      redis (~> 3.2, >= 3.2.1)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -334,10 +362,14 @@ DEPENDENCIES
   rails-erd
   rails_12factor
   redis (~> 3.2)
+  redis-namespace
+  redis-rack-cache
+  redis-rails
   responders
   rspec-rails (~> 3.5)
   shoulda
   shoulda-matchers
+  sidekiq
   simplecov
   therubyracer
   unicorn

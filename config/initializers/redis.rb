@@ -1,0 +1,1 @@
+$redis = Redis::Namespace.new("geoodoom", :redis => Redis.new)
