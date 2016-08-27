@@ -7,9 +7,6 @@ module Api
         render text: "Geoodoom API"
       end
 
-      def upload
-      end
-
       def sign
         @expires = 10.hours.from_now.utc.iso8601
 

@@ -1,11 +1,22 @@
 module Api
   module V1
     class UsersController < Api::V1::BaseController
-      before_action :doorkeeper_authorize!, except: [:create, :index, :show, :me]
+      before_action :doorkeeper_authorize!, except: [:create, :index, :show, :me, :upload]
       before_action :find_user, only: [:show, :update, :destroy]
 
       def index
         render json: User.all
+      end
+
+      def upload       
+        user = current_user
+
+        if user
+          user.avatar = params[:file]
+          if user.save
+            render json: current_user
+          end
+        end
       end
 
       def me
@@ -38,7 +49,7 @@ module Api
 
       private
       def user_params
-        params.require(:data).require(:attributes).permit(:email, :password, :currency, :nickname, :image, :uid, :online)
+        params.require(:data).require(:attributes).permit(:email, :password, :currency, :nickname, :image, :uid, :online, :avatar)
       end
 
       def find_user

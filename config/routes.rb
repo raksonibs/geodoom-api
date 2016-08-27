@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       root to: "base#index"
       get '/users/me', to: 'users#me'
-      get '/upload', to: "base#upload"
       get '/sign', to: "base#sign"
       resources :users
+      post '/upload', to: "users#upload"
       resources :balance_changes
       resources :pet_states, except: [:new, :edit]
       resources :game_stats, except: [:new, :edit]

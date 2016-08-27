@@ -20,6 +20,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'redis', '~>3.2'
 gem 'coveralls', require: false
 gem 'kaminari'
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 
 group :development, :test do
   gem 'pry'
