@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
 
   has_many :balance_changes
   has_and_belongs_to_many :battles
-  has_many :pets
+  has_many :pets, :dependent => :destroy
   has_many :game_stats
 
-  after_create :make_pets
+  after_create :make_pets, :send_welcome
 
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
 
   def redis_key(str)
     "user:#{self.id}:#{str}"
+  end
+
+  def send_welcome
+    UserMailer.welcome_email(self).deliver
   end
   
 end
