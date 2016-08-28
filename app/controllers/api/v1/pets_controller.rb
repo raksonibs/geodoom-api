@@ -2,7 +2,7 @@ module Api
   module V1
     class PetsController < Api::V1::BaseController
       # before_action :doorkeeper_authorize!
-      before_action :find_pet, only: [:show, :update, :destroy]
+      before_action :find_pet, only: [:show, :update, :destroy, :remove]
 
       def index
         if params[:page]
@@ -24,6 +24,11 @@ module Api
       end
 
       def show
+        render json: @pet
+      end
+
+      def remove        
+        @pet.remove_item!(Item.find(params[:item][:id]))
         render json: @pet
       end
 

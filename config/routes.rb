@@ -15,7 +15,11 @@ Rails.application.routes.draw do
       resources :game_stats, except: [:new, :edit]
       resources :states, except: [:new, :edit]
       resources :stats, except: [:new, :edit]
-      resources :pets, except: [:new, :edit]
+      resources :pets, except: [:new, :edit] do 
+        member do 
+          post 'remove'
+        end
+      end
       resources :battles, except: [:new, :edit]
     end
   end

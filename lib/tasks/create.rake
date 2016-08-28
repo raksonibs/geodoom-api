@@ -32,10 +32,12 @@ end
 
 desc 'Create Items'
 task :create_items => :environment do 
+  Item.destroy_all
+
   10000.times do |i|
     name = Faker::Name.name 
-    defenceChange = rand*100
-    attackChange = rand*100
+    defenceChange = rand * 100
+    attackChange = rand * 100
 
     Item.create(name: name, defenceChange: defenceChange, attackChange: attackChange)
   end

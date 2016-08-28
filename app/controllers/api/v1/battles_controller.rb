@@ -6,9 +6,8 @@ module Api
       before_action :update_params, only: [:update]
 
       def index
-        # battles = current_user.try(:battles) || Battle.all
-        # filtered_battles = apply_filters(battles, params[:filter])
-        battles  = $redis.get('')
+        battles = current_user.try(:battles) || Battle.all
+        filtered_battles = apply_filters(battles, params[:filter])        
 
         render json: filtered_battles.order("created_at DESC")
       end
