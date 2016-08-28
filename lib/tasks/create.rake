@@ -1,3 +1,5 @@
+require 'faker'
+
 desc "Create some battles"
 task :create_battles => :environment do   
   battle = Battle.last
@@ -26,4 +28,15 @@ task :create_gs => :environment do
 
   json = JSON.parse(res.body)  
   json['playerstats']["stats"].each{|stat| GameStat.find_by_user_id_and_name(user.id, stat["name"]) || GameStat.create!(user_id: user.id, name: stat["name"], value: stat["value"])}
+end
+
+desc 'Create Items'
+task :create_items => :environment do 
+  10000.times do |i|
+    name = Faker::Name.name 
+    defenceChange = rand*100
+    attackChange = rand*100
+
+    Item.create(name: name, defenceChange: defenceChange, attackChange: attackChange)
+  end
 end

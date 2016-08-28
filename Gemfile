@@ -26,6 +26,7 @@ gem 'sidekiq'
 gem 'redis-namespace'
 gem 'redis-rails'
 gem 'redis-rack-cache'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'pry'
